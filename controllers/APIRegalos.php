@@ -20,6 +20,7 @@ class APIRegalos {
         }
 
         echo json_encode($regalos);
+        return;
     }
 
 }
