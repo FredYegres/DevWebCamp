@@ -869,7 +869,7 @@ h3 {
 }
 @media (min-width: 768px) {
   .boleto--acceso .boleto__codigo {
-    rotate: 90deg;
+    transform: rotate(90deg);
     transform-origin: 0 0;
     width: 30rem;
     top: 0;
