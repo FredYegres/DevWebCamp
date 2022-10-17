@@ -9,7 +9,7 @@ class APIRegalos {
 
     public static function index() {
         if(!is_admin()) {
-            header('Location: /');
+            echo json_encode([]);
             return;
         }
         
@@ -18,7 +18,7 @@ class APIRegalos {
         foreach($regalos as $regalo) {
             $regalo->total = Registro::totalArray(['regalo_id' => $regalo->id, 'paquete_id' => '1']);
         }
-
+        debuguear(json_encode($regalos));
         echo json_encode($regalos);
         return;
     }
