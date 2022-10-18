@@ -1171,10 +1171,15 @@ h3 {
   background-color: #007df4;
 }
 .barra__contenido {
-  width: min(95%, 140rem);
-  margin: 0 auto;
+  margin: 0;
   display: flex;
   flex-direction: column;
+}
+@media (min-width: 768px) {
+  .barra__contenido {
+    width: min(95%, 140rem);
+    margin: 0 auto;
+  }
 }
 @media (min-width: 1024px) {
   .barra__contenido {
@@ -1862,5 +1867,108 @@ h3 {
   border: 1px solid #64748B;
   padding: 1rem;
   border-radius: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  body,
+.dashboard__contenido,
+.registro {
+    background-color: #1E293B;
+  }
+  .registro--conferencias {
+    background-color: #202b3e;
+  }
+  .registro__evento:nth-child(odd) {
+    background-color: #2f405d;
+  }
+  .dashboard__formulario {
+    background-color: #40587f;
+  }
+  .navegacion__enlace--actual, .navegacion__enlace:hover {
+    background-color: #e6e6e6;
+  }
+  .table__tr:nth-of-type(odd) {
+    background-color: #4a7bac;
+  }
+  .dashboard__header {
+    background-color: #151d2a;
+  }
+  .table__thead {
+    background-color: #0063c1;
+  }
+  .table__accion--editar {
+    color: #002f5b;
+  }
+  .dashboard__heading,
+.agenda__heading,
+.devwebcamp__heading,
+.auth__heading,
+.speakers__heading,
+.boletos__heading,
+.paquetes__heading,
+.registro__heading,
+.pagina__heading,
+.formulario__legend,
+.acciones__enlace,
+.evento__hora,
+.speaker__nombre,
+.paquete__nombre,
+.formulario__radio,
+.registro__regalo {
+    color: #FFFFFF;
+  }
+  .speaker__ubicacion,
+.eventos__fecha,
+.eventos-registro__fecha,
+.devwebcamp__texto,
+.paquete__elemento,
+.auth__texto,
+.formulario__label,
+.formulario__input--file,
+.formulario__texto,
+.registro__nombre,
+.registro__texto {
+    color: #b1c7dd;
+  }
+  .horas__hora {
+    color: #5bafff;
+    border: 1px solid #2896ff;
+  }
+  .horas__hora--deshabilitada {
+    opacity: 0.1;
+    color: white;
+    border: 1px solid white;
+  }
+  .horas__hora--seleccionada {
+    color: #FFFFFF;
+  }
+  .boleto--presencial::after, .boleto--presencial::before,
+.boleto--virtual::after,
+.boleto--virtual::before,
+.boleto--gratis::after,
+.boleto--gratis::before {
+    background-color: #1E293B;
+  }
+  .speaker-sociales__enlace::before {
+    color: #d4e1ed;
+  }
+  .formulario__input:not([type=submit]),
+.formulario__input--sociales:not([type=submit]),
+.formulario__select,
+.registro__select,
+.formulario__radio input[type=radio],
+input[type=file] {
+    background-color: #384c6e;
+    color-scheme: dark;
+    border: none;
+    color: #FFFFFF;
+  }
+  .alerta__error {
+    background-color: #ffa9a9;
+  }
+  .swal2-popup {
+    background-color: #1E293B !important;
+    color: #F8FAFC !important;
+  }
 }
 /*# sourceMappingURL=app.css.map */
