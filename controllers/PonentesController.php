@@ -211,7 +211,11 @@ class PonentesController {
             if(!$ponente) {
                 header('Location: /admin/ponentes');
             }
-    
+            
+            $carpeta_imagenes = '../public/build/img/speakers';
+            unlink($carpeta_imagenes . '/' . $ponente->imagen . ".png" );
+            unlink($carpeta_imagenes . '/' . $ponente->imagen . ".webp" );
+
             $resultado = $ponente->eliminar();
     
             if($resultado) {
