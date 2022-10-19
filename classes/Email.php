@@ -23,6 +23,7 @@ class Email {
         // create a new object
         $mail = new PHPMailer();
         $mail->isSMTP();
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Host = $_ENV['EMAIL_HOST'];
         $mail->SMTPAuth = true;
         $mail->Port = $_ENV['EMAIL_PORT'];
@@ -55,6 +56,7 @@ class Email {
         // create a new object
         $mail = new PHPMailer();
         $mail->isSMTP();
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Host = $_ENV['EMAIL_HOST'];
         $mail->SMTPAuth = true;
         $mail->Port = $_ENV['EMAIL_PORT'];
