@@ -48,12 +48,7 @@ class Email {
          $mail->Body = $contenido;
 
          //Enviar el mail
-         if (!$mail->send()) {
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
-        } else {
-            echo 'Message sent!';
-
-        }
+        $mail->send();
 
     }
 
@@ -87,8 +82,6 @@ class Email {
         $mail->Body = $contenido;
 
          //Enviar el mail
-         if (!$mail->send()) {
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
-        }
+        $mail->send();
     }
 }
