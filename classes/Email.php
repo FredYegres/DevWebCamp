@@ -3,6 +3,7 @@
 namespace Classes;
 
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;   
 
 class Email {
 
@@ -22,13 +23,16 @@ class Email {
          // create a new object
          $mail = new PHPMailer();
          $mail->isSMTP();
+         $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
          $mail->Host = $_ENV['EMAIL_HOST'];
          $mail->SMTPAuth = true;
          $mail->Port = $_ENV['EMAIL_PORT'];
          $mail->Username = $_ENV['EMAIL_USER'];
          $mail->Password = $_ENV['EMAIL_PASS'];
      
-         $mail->setFrom('cuentas@devwebcamp.com');
+         $mail->setFrom($_ENV['EMAIL_USER'], 'Cuentas DevWebCamp');
+         $mail->addReplyTo('cuentas@devwebcamp.com', 'Cuentas DevWebCamp');
          $mail->addAddress($this->email, $this->nombre);
          $mail->Subject = 'Confirma tu Cuenta';
 
@@ -44,28 +48,36 @@ class Email {
          $mail->Body = $contenido;
 
          //Enviar el mail
-         $mail->send();
+         if (!$mail->send()) {
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+        } else {
+            echo 'Message sent!';
+
+        }
 
     }
 
     public function enviarInstrucciones() {
 
-        // create a new object
-        $mail = new PHPMailer();
-        $mail->isSMTP();
-        $mail->Host = $_ENV['EMAIL_HOST'];
-        $mail->SMTPAuth = true;
-        $mail->Port = $_ENV['EMAIL_PORT'];
-        $mail->Username = $_ENV['EMAIL_USER'];
-        $mail->Password = $_ENV['EMAIL_PASS'];
-    
-        $mail->setFrom('cuentas@devwebcamp.com');
-        $mail->addAddress($this->email, $this->nombre);
-        $mail->Subject = 'Reestablece tu password';
+         // create a new object
+         $mail = new PHPMailer();
+         $mail->isSMTP();
+         $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+         $mail->Host = $_ENV['EMAIL_HOST'];
+         $mail->SMTPAuth = true;
+         $mail->Port = $_ENV['EMAIL_PORT'];
+         $mail->Username = $_ENV['EMAIL_USER'];
+         $mail->Password = $_ENV['EMAIL_PASS'];
+     
+         $mail->setFrom($_ENV['EMAIL_USER'], 'Cuentas DevWebCamp');
+         $mail->addReplyTo('cuentas@devwebcamp.com', 'Cuentas DevWebCamp');
+         $mail->addAddress($this->email, $this->nombre);
+         $mail->Subject = 'Confirma tu Cuenta';
 
-        // Set HTML
-        $mail->isHTML(TRUE);
-        $mail->CharSet = 'UTF-8';
+         // Set HTML
+         $mail->isHTML(TRUE);
+         $mail->CharSet = 'UTF-8';
 
         $contenido = '<html>';
         $contenido .= "<p><strong>Hola " . $this->nombre .  "</strong> Has solicitado reestablecer tu password, sigue el siguiente enlace para hacerlo.</p>";
@@ -74,7 +86,12 @@ class Email {
         $contenido .= '</html>';
         $mail->Body = $contenido;
 
-        //Enviar el mail
-        $mail->send();
+         //Enviar el mail
+         if (!$mail->send()) {
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+        } else {
+            echo 'Message sent!';
+
+        }
     }
 }
