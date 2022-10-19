@@ -89,9 +89,6 @@ class Email {
          //Enviar el mail
          if (!$mail->send()) {
             echo 'Mailer Error: ' . $mail->ErrorInfo;
-        } else {
-            echo 'Message sent!';
-
         }
     }
 }
