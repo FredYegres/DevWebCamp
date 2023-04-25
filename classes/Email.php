@@ -66,7 +66,7 @@ class Email {
         $mail->setFrom($_ENV['EMAIL_USER'], 'Cuentas DevWebCamp');
         $mail->addReplyTo('cuentas@devwebcamp.com', 'Cuentas DevWebCamp');
         $mail->addAddress($this->email, $this->nombre);
-        $mail->Subject = 'Confirma tu Cuenta';
+        $mail->Subject = 'Reestablecer Password';
 
         // Set HTML
         $mail->isHTML(TRUE);
